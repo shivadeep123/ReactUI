@@ -1,0 +1,74 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $nav-height;
+  box-shadow: 0 0 2px rgba(0,0,0,.5);
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  background-color: #4262A5;
+}
+
+.nav__wrapper {
+  max-width: 1300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+
+.td-column-function-even-example{
+  background-color: 'red';
+  color:'yellow'
+}
+
+.td-column-function-odd-example{
+  background-color: 'blue';
+  color:'blue'
+}
+.tr-function-example{
+  background-color: 'black';
+  color:white;
+}
+
+.nav__logo-wrapper {
+  text-decoration: none;
+}
+
+.nav__logo {
+  height: 3.7em;
+  width:70px;
+  font-size: 1em;
+  margin: 0;
+  user-select: none;
+  color: $text-color;
+  text-decoration: none;
+}
+
+.btn--nav {
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+.btn--nav + .btn--nav {
+  margin-left: 1em;
+}
+
+@media screen and (max-width: 300px) {
+  .nav__wrapper {
+    justify-content: none;
+  }
+
+  .nav__logo-wrapper {
+    margin: 0 auto;
+  }
+
+  .btn--nav {
+    display: none;
+  }
+}

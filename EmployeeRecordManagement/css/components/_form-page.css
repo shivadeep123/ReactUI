@@ -1,0 +1,68 @@
+/***********Login form page Styles*******************/
+.form-page__wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+  width: 100%;
+}
+
+.form-page__form-wrapper {
+  max-width: 325px;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+  background-color:#4262a5;
+}
+
+.form-page__form-heading {
+  text-align: center;
+  font-size: 1.5em;
+  user-select: none;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.google-login, .my-facebook-button-class{
+  border: 1px solid #fff;
+    padding: 0.5em;
+    color: #fff;
+}
+.form-page__form-header {
+  padding: 1em;
+}
+
+/*********Registration form page styles*****************/
+.registerform-page__wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+  width: 100%;
+}
+
+.registerform-page__form-wrapper {
+  max-width: 500px;
+  max-height: 1200px;
+  border: 1px solid $very-light-grey;
+  border-radius: 3px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+  background-color:#4262a5;
+}
+
+.registerform-page__form-heading {
+  text-align: center;
+  font-size: 1.5em;
+  user-select: none;
+  background-color:#4262a5;
+  color: #fff;
+  font-family: sans-serif;
+  padding: 1em;
+  
+}
+
+.registerform-page__form-header {
+  padding: 0em;
+  height: 500px;
+  overflow-y: scroll;
+}

@@ -1,0 +1,69 @@
+import excel2Json from "excel-to-json";
+import fs from "fs";
+
+
+
+
+export default excel2Json(            
+  {
+trans:{
+      input: ".",
+      output: "."
+}} , function(err, result) {
+  if(err) {
+    console.error("There is error "+err);              
+  } else {
+    console.log("inside profileData >>> excelToJson ");    
+  }
+  console.log("inside profileData >>> excelToJson")
+})
+
+
+// export const ProfileData = 
+ 
+//     [ {
+//     "First Name":"Dinesh",
+//     "Last Name":"Reddy",
+//     "Project":"testing",
+//     "Release Date":"01-01-1995",
+//     "Primary Skills":"Java",
+//     "Secondary Skills":"C",
+//     "Years of experience":"2",
+//     "Trainings":"Project management",
+//     "Qualification":"Msc",
+//     "Mobile number":"743293284",
+//     "Email":"dinesh.r@test1"
+//      },
+     
+//      {
+//     "First Name":"Dinesh",
+//     "Last Name":"Reddy",
+//     "Project":"testing",
+//     "Release Date":"01-01-1995",
+//     "Primary Skills":"Java",
+//     "Secondary Skills":"C",
+//     "Years of experience":"2",
+//     "Trainings":"J2EE",
+//     "Qualification":"Msc",
+//     "Mobile number":"743293284",
+//     "Email":"dinesh.r@test2"
+//     },
+    
+//     {
+//     "First Name":"Dinesh",
+//     "Last Name":"Reddy",
+//     "Project":"testing",
+//     "Release Date":"01-01-1995",
+//     "Primary Skills":"Java",
+//     "Secondary Skills":"C",
+//     "Years of experience":"2",
+//     "Trainings":"Spring",
+//     "Qualification":"Msc",
+//     "Mobile number":"743293284",
+//     "Email":"dinesh.r@test3"
+//     }
+// ]
+
+     
+ 
+

@@ -1,0 +1,86 @@
+// Copyright (c) 2017 PlanGrid, Inc.
+
+import React, { Component } from 'react';
+import XLSX from 'xlsx';
+import axios from "axios";
+import {fileUpload} from '../../actions/AppActions'
+import CsvViewer from './csv-viewer';
+import connect from 'react-router'
+
+export default class FileUpload extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = this.parse();
+  // }
+  parse() {
+    axios('./ApplicationCatalogue.xlsx').then((response) =>{
+      this.data = response.data 
+  console.log("ths response data "+this.data)
+    const dataArr = new Uint8Array(this.data);
+    console.log(dataArr.length)
+    const arr = [];
+
+    for (let i = 0; i !== dataArr.length; i += 1) {
+      arr.push(String.fromCharCode(dataArr[i]));
+    }
+
+    const workbook = XLSX.read(arr.join(''), { type: 'binary' });
+    const names = Object.keys(workbook.Sheets);
+    const sheets = names.map(name => (
+      XLSX.utils.sheet_to_csv(workbook.Sheets[name])
+    ));
+
+    newState =assign(this.props.data,{sheets: sheets, names:names}); 
+    this.props.dispatch(fileUpload(newState))
+  
+  }).catch((err) => {console.log(err)})
+  }
+
+  renderSheetNames(names) {
+    const sheets = names.map((name, index) => (
+      <input
+        key={name}
+        type="button"
+        value={name}
+        onClick={() => {
+          //this.setState({ curSheetIndex: index });
+          newState =assign(this.props.data,{curSheetIndex: index}); 
+          this.props.dispatch(fileUpload(newState))
+        }}
+      />
+    ));
+
+    return (
+      <div className="sheet-names">
+        {sheets}
+      </div>
+    );
+  }
+
+  renderSheetData(sheet) {
+    const csvProps = Object.assign({}, this.props, { data: sheet });
+    return (
+      <CsvViewer {...csvProps} />
+    );
+  }
+
+  render() {
+    this.parse()
+    const dispatch = this.props.dispatch;
+    const { fileUpload } = this.props.data;
+    return (
+      <div className="spreadsheet-viewer">
+        {this.renderSheetNames(fileUpload.names)}
+        {this.renderSheetData(fileUpload.sheets[fileUpload.curSheetIndex || 0])}
+      </div>
+    );
+  }
+}
+function select(state) {
+  return {
+    data: state
+  };
+}
+
+// Wrap the component to inject dispatch and state into it
+export default connect(select)(FileUpload);

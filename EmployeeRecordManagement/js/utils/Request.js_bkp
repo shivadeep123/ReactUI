@@ -1,0 +1,41 @@
+import axios from "axios";
+
+/**
+ *  XMLHttpRequest wrapper with a syntax similar to the much used request.js
+ * @type {Object}
+ */
+
+var Request = {
+  /**
+   * Pretends to post to a remote server with  network latency
+   * @param  {string}    endpoint The endpoint of the server that should be contacted
+   * @param  {?object}   data     The data that should be transferred to the server
+   */
+
+  post(endpoint, data) {
+
+    const registerUrl = 'http://9.199.164.239:9001/userdetails/registration';
+    const loginUrl = 'http://9.199.164.239:8082/userdetails/login';
+    const logoutUrl = 'http://9.199.164.239:8082/userdetails/logout';
+    const findAllUrl = 'http://9.199.164.239:8082/userdetails/findall'
+    console.log(data);
+    console.log(endpoint);
+      switch (endpoint) {
+        case '/login':
+         // axios.post(loginUrl, {params:{"username":data.username, "password":data.password}}).then((res) => {console.log(res)});
+         // fetch.post(loginUrl, {params:{"username":data.username, "password":data.password}}).then((res) => {console.log(res)});
+         axios.get(findAllUrl).then((res) => {console.log(res)});
+          break;
+        case '/register':
+          axios.post(registerUrl, {params:{"username":data.username, "password":data.password, "firstname":data.firstname, "lastname":data.lastname, "gender":data.gender,"Dob": data.dob,"city":data.city,"state":data.state,"country":data.country}});
+          break;
+        case '/logout':
+          axios.post(logoutUrl, {params:{"username":data.username, "password":data.password}});
+          break;
+        default:
+          break;
+      }
+  }
+}
+
+module.exports = Request;

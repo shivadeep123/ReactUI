@@ -1,0 +1,35 @@
+$wrapper-padding: 16px;
+
+.wrapper {
+	max-width: calc($max-width + $wrapper-padding * 2);
+	margin: 0 auto;
+	display: flex;
+	height: 100%;
+	padding: 0 $wrapper-padding;
+}
+
+#app {
+	height: 100%;
+}
+
+.text-section {
+	color: white;
+	margin: 3em auto;
+}
+.employee-profile-container{
+	background-color: rgba(0, 255, 64, 0.582)
+}
+.skill-deficit{
+	background-color: red;
+	color: #fff;
+}
+
+.skill-sufficient{
+	background-color: #FFCC00;
+	color: #fff;
+}
+
+.skill-surplus{
+	background-color: green;
+	color: #fff;
+}
